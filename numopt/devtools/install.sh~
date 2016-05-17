@@ -1,0 +1,2 @@
+#!/bin/bash
+conda install python=2.7 --file requirements.txt -c https://conda.anaconda.org/mq -y
