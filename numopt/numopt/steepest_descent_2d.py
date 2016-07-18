@@ -9,7 +9,7 @@ def steepest_descent(x0, f, grad_f, stop_criterion, max_iter):
         direction = (-1)*grad_f(x)/np.linalg.norm(grad_f(x))
         alpha = update_alpha(x, f, direction)
         x += alpha*direction
-        del_x = abs(np.linalg.norm(x) - np.linalg.norm(x_old))
+        del_x = np.linalg.norm(x - x_old)
         iter += 1
     return x, iter
 

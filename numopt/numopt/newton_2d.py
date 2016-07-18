@@ -11,5 +11,5 @@ def newton(x0, f, grad_f, hessian_f, stop_criterion, max_iter):
         direction = (-1)* np.dot(np.linalg.inv(hessian_f(x)), grad_f(x))
         x += direction
         iter += 1
-        del_x = abs(np.linalg.norm(x) - np.linalg.norm(x_old))
+        del_x = np.linalg.norm(x - x_old)
     return x, iter
