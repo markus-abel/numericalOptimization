@@ -1,7 +1,7 @@
-import numopt2.util as u
+import numopt.util as u
 import numpy as np
-import numopt2.steepest_descent as s
-import numopt2.newton as new
+import numopt.steepest_descent as s
+import numopt.newton as new
 import scipy.optimize as scopt
 
 
