@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def steepest_descent(x0, f, grad_f, stop_criterium, max_iter):
+def steepest_descent(x0, f, grad_f, stop_criterium=0.001, max_iter=1000):
     x = x0
     delX = 1
     iteration = 0
