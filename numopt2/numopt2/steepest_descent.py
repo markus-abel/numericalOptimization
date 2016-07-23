@@ -1,28 +1,29 @@
 import numpy as np
 
-def steepest_descent(x0,f,grad_f,stop_criterium=0.0001,max_iter=1000):
 
-    x=x0
-    # teste, ob delX > stopCriterium
+def steepest_descent(x0, f, grad_f, stop_criterium, max_iter):
+    x = x0
     delX = 1
-    iter=0
-    alpha=0.1
-    while delX > stop_criterium and iter< max_iter:
-        xalt=x
-        direction= - grad_f(x)/abs(f(x))
-        #x^{n+1} = x^n + ..
+    iteration = 0
+    alpha = 0.1
 
-        x = x + update_alpha(x,f,direction)*direction
+    if not delX > stop_criterium:
+        print('Stop Criterium > {}'.format(delX))
+
+    while delX > stop_criterium and iteration < max_iter:
+        xalt = x
+        direction = - grad_f(x)/abs(f(x))
+        # x^{n+1} = x^n + ..
+        x = x + update_alpha(x, f, direction)*direction
         delX = np.linalg.norm(x-xalt)
-        iter = iter + 1
+        iteration += 1
 
-    return x,iter
+    return x, iteration
 
 
-
-def update_alpha(x,f,direction):
+def update_alpha(x, f, direction):
     alpha = 1
-    factor = 0.5
-    while f(x+alpha*direction) >= f(x):
-        alpha=factor*alpha
+    factor = .5
+    while f(x + alpha * direction) >= f(x):
+        alpha = factor * alpha
     return alpha
